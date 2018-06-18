@@ -1,0 +1,46 @@
+<div class="container">
+
+  <form autocomplete="off" #form = "ngForm">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Nova Pessoa {{enderecoModel | json}}</h1>
+
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <label>Nome</label>
+        <input pInputText type="text" name="nome" ngModel>
+      </div>
+      <div class="ui-g-8 ui-fluid">
+        <label>Logradouro</label>
+        <input *ngIf="enderecoModel.logradouro === undefined" pInputText type="text" name="logradouro" [(ngModel)]="enderecoModel.logradouro">
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <label>Número</label>
+        <input pInputText type="number" name="numero" ngModel>
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <label>Complemento</label>
+        <input pInputText type="text" name="complemento" ngModel>
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <label>Bairro</label>
+        <input pInputText type="text" name="bairro" ngModel>
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <label>CEP</label>
+        <p-inputMask name="bairro" ngModel mask="99999-999" (onBlur)="getEndereco(cep)" #cep="ngModel"></p-inputMask>
+      </div>
+      <div class="ui-g-6 ui-fluid">
+        <label>Cidade</label>
+        <input pInputText type="text" name="cidade" ngModel>
+      </div>
+      <div class="ui-g-6 ui-fluid">
+        <label>Estado</label>
+        <input pInputText type="text" name="estado" ngModel>
+      </div>
+      <div class="ui-g-12">
+        <button type="button" pButton label="Salvar"></button>
+      </div>
+    </div>
+  </form>
+</div>
