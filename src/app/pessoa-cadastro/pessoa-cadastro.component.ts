@@ -1,4 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {EnderecoModel} from '../model/endereco.model';
 import {CepService} from '../cep/cep.service';
 
@@ -10,19 +10,24 @@ import {CepService} from '../cep/cep.service';
 
 export class PessoaCadastroComponent {
 
-  @Input() enderecoModel: EnderecoModel;
+  enderecoModel = new EnderecoModel();
+  cepValue: string;
 
-  constructor(private cepService: CepService) {}
+
+  constructor(private cepService: CepService) {
+  }
 
   getEndereco(cep: any) {
     console.log(cep.value);
-    this.cepService.getEnderecoViaCep(cep.value).subscribe(endereco => {
-      if (endereco.erro === true) {
-        this.enderecoModel = undefined;
-      } else {
+     this.cepValue = cep.value.replace(/_/g, '');
+    console.log(this.cepValue);
+    if (this.cepValue.length >  8) {
+      this.cepService.getEnderecoViaCep(cep.value).subscribe(endereco => {
         this.enderecoModel = endereco;
-      }
       });
-
+    }
+  }
+  salvar(event: any) {
+    console.log(event);
   }
 }

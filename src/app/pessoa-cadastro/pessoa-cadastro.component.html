@@ -1,22 +1,31 @@
 <div class="container">
 
-  <form autocomplete="off" #form = "ngForm">
+  <form autocomplete="off" #form="ngForm">
     <div class="ui-g">
       <div class="ui-g-12">
-        <h1>Nova Pessoa {{enderecoModel | json}}</h1>
+        <h1>Nova Pessoa</h1>
 
       </div>
       <div class="ui-g-12 ui-fluid">
-        <label>Nome</label>
-        <input pInputText type="text" name="nome" ngModel>
+        <label class="required">Nome</label>
+        <input pInputText type="text" name="nome" ngModel #nome="ngModel" required>
+        <app-message [control]="nome" error="required" text="O nome é obrigatório"></app-message>
+      </div>
+      <div class="ui-g-4 ui-fluid">
+        <label class="required">CEP</label>
+        <p-inputMask name="cep" ngModel="cep" mask="99999-999" (onBlur)="getEndereco(cep)" #cep="ngModel" minlength="8"
+                     required></p-inputMask>
+        <app-message [control]="cep" error="minlength" text="O cep deve ter 8 caracteres"></app-message>
+        <app-message [control]="cep" error="required" text="O cep é obrigatório"></app-message>
       </div>
       <div class="ui-g-8 ui-fluid">
         <label>Logradouro</label>
-        <input *ngIf="enderecoModel.logradouro === undefined" pInputText type="text" name="logradouro" [(ngModel)]="enderecoModel.logradouro">
+        <input pInputText type="text" name="logradouro" [(ngModel)]="enderecoModel.logradouro" disabled>
       </div>
       <div class="ui-g-4 ui-fluid">
-        <label>Número</label>
-        <input pInputText type="number" name="numero" ngModel>
+        <label class="required">Número</label>
+        <input pInputText type="number" name="numero" ngModel #numero="ngModel" required>
+        <app-message [control]="numero" error="required" text="O número é obrigatório"></app-message>
       </div>
       <div class="ui-g-4 ui-fluid">
         <label>Complemento</label>
@@ -24,22 +33,23 @@
       </div>
       <div class="ui-g-4 ui-fluid">
         <label>Bairro</label>
-        <input pInputText type="text" name="bairro" ngModel>
-      </div>
-      <div class="ui-g-4 ui-fluid">
-        <label>CEP</label>
-        <p-inputMask name="bairro" ngModel mask="99999-999" (onBlur)="getEndereco(cep)" #cep="ngModel"></p-inputMask>
+        <input pInputText type="text" name="bairro" ngModel [(ngModel)]="enderecoModel.bairro" disabled>
       </div>
       <div class="ui-g-6 ui-fluid">
         <label>Cidade</label>
-        <input pInputText type="text" name="cidade" ngModel>
+        <input pInputText type="text" name="cidade" [(ngModel)]="enderecoModel.localidade" disabled>
       </div>
       <div class="ui-g-6 ui-fluid">
         <label>Estado</label>
-        <input pInputText type="text" name="estado" ngModel>
+        <input pInputText type="text" name="estado" [(ngModel)]="enderecoModel.uf" disabled>
       </div>
       <div class="ui-g-12">
-        <button type="button" pButton label="Salvar"></button>
+        <div class="ui-g-1">
+          <button type="submit" pButton label="Salvar" [disabled]="!form.valid"></button>
+        </div>
+        <div class="ui-g-1">
+          <button type="reset" pButton label="Reset" class="ui-button-info"></button>
+        </div>
       </div>
     </div>
   </form>
