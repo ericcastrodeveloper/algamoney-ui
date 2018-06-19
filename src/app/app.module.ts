@@ -24,6 +24,8 @@ import { MessageComponent } from './message/message.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CepService} from './cep/cep.service';
+import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
+import { PessoaGridComponent } from './pessoa-grid/pessoa-grid.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import {CepService} from './cep/cep.service';
     LancamentoCadastroComponent,
     MessageComponent,
     PessoaCadastroComponent,
+    LancamentosGridComponent,
+    PessoaGridComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import {CepService} from './cep/cep.service';
     InputMaskModule,
     CurrencyMaskModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [CepService],
   bootstrap: [AppComponent]

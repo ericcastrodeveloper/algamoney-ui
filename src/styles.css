@@ -12,7 +12,7 @@ label {
     .container {
         width:1170px;
         margin: 0 auto;
-    
+
     }
 }
 .col-valor {
@@ -34,4 +34,11 @@ a {
 
 a:hover, a:focus {
     text-decoration: underline;
+}
+/*
+* na frente de campos obrigatórios
+*/
+.required:after {
+  content:" *";
+  color: red;
 }

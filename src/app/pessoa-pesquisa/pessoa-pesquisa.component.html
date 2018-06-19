@@ -11,22 +11,7 @@
   </div>
   <div class="ui-g">
       <div class="ui-g-12">
-        <p-dataTable [value]="pessoas" [paginator]="true" [rows]="4" [responsive]="true">
-          <p-column field="nome" header="Nome"></p-column>
-          <p-column field="cidade" header="Cidade"></p-column>
-          <p-column field="estado" header="Estado"></p-column>
-          <p-column field="status" header="Status">
-            <ng-template let-pes="rowData" pTemplate="body">
-             <a href="#" [pTooltip]="!pes.status ? 'Ativar' : 'Desativar'" tooltipPosition="top">{{pes.status ? 'Ativo' : 'Desativo'}}</a>
-            </ng-template>
-          </p-column>
-          <p-column styleClass="col-acoes">
-            <ng-template pTemplate="body">
-              <a pButton icon="fa fa-pencil" pTolltip="Editar" tooltipPosition="bottom"></a>
-              <a pButton icon="fa fa-trash" pTooltip="Excluir" tooltipPosition="bottom" class="ui-button-danger"></a>
-            </ng-template>
-          </p-column>
-        </p-dataTable>
+        <app-pessoa-grid [recebePessoas]="pessoas"></app-pessoa-grid>
       </div>
     </div>
     <div class="ui-g">

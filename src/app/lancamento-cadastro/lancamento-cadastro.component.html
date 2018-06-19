@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form autocomplete="off">
+  <form autocomplete="off" #form="ngForm">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Novo Lançamento</h1>
@@ -9,35 +9,35 @@
         <p-selectButton [options]="tipos" #tipo></p-selectButton>
       </div>
       <div class="ui-g-6 ui-md-3 ui-fluid">
-        <label>Vencimento</label>
+        <label class="required">Vencimento</label>
         <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false" [showIcon]="false"></p-calendar>
       </div>
       <div class="ui-g-6 ui-md-3 ui-fluid">
-        <label>{{tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
+        <label class="required">{{tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
         <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false" [showIcon]="false"></p-calendar>
       </div>
       <div class="ui-g-12 ui-md-9  ui-fluid">
-        <label>Descrição {{descricao.errors | json}}</label>
+        <label class="required">Descrição {{descricao.errors | json}}</label>
         <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="5">
         <app-message [control]="descricao" error="required" text="Informe uma descrição"></app-message>
         <app-message [control]="descricao" error="minlength" text="Mínimo de {{descricao.errors?.minlength?.requiredLength}} caracteres"></app-message>
       </div>
 
-      
+
       <div class="ui-g-12 ui-md-3 ui-fluid">
-        <label>Valor</label>
-      <input pInputText type="text" name="valor" placeholder="0,00" currencyMask       
+        <label class="required">Valor</label>
+      <input pInputText type="text" name="valor" placeholder="0,00" currencyMask
       [options]="{prefix: '', thousands: '.', decimal: ',', allowNegative: false}" ngModel #valor="ngModel" required>
       <app-message [control]="valor" error="required" text="Insira um valor"></app-message>
 
 
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
-        <label>Categoria {{categoria.value}}</label>
+        <label class="required">Categoria {{categoria.value}}</label>
         <p-dropdown [options]="categorias" [autoWidth]="false" placeholder="Selecione" #categoria></p-dropdown>
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
-        <label>Pessoa</label>
+        <label class="required">Pessoa</label>
         <p-dropdown [options]="pessoas" [autoWidth]="false" [filter]="true" placeholder="Selecione" #pessoa></p-dropdown>
       </div>
       <div class="ui-g-12 ui-fluid">
@@ -46,13 +46,13 @@
       </div>
       <div class="ui-g-12">
         <div class="ui-g-1">
-          <button pButton label="Salvar" type="button"></button>
+          <button pButton label="Salvar" type="button" [disabled]="!form.valid"></button>
         </div>
         <div class="ui-g-1">
           <button pButton label="Novo" type="button" class="btn btn-info"></button>
         </div>
         <div class="ui-g-1">
-          <a href="#" class="btn btn-primary">Voltar</a>
+          <a href="#" pButton label="Voltar" class="ui-button-info"></a>
         </div>
       </div>
     </div>
