@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {EnderecoModel} from '../model/endereco.model';
-import {CepService} from '../cep/cep.service';
+import {EnderecoModel} from '../../model/endereco.model';
+import {CepService} from '../../cep/cep.service';
+
 
 @Component({
   selector: 'app-pessoa-cadastro',

@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -12,33 +12,20 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputMaskModule} from 'primeng/inputmask';
 
-import { CurrencyMaskModule } from "ng2-currency-mask";
+import {CurrencyMaskModule} from 'ng2-currency-mask';
 
-import { AppComponent } from './app.component';
-import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PessoaPesquisaComponent } from './pessoa-pesquisa/pessoa-pesquisa.component';
-import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import { FormsModule } from '@angular/forms';
-import { MessageComponent } from './message/message.component';
-import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {AppComponent} from './app.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import {CepService} from './cep/cep.service';
-import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
-import { PessoaGridComponent } from './pessoa-grid/pessoa-grid.component';
+import {LancamentosModule} from './lancamentos/lancamentos.module';
+import {PessoasModule} from './pessoas/pessoas.module';
+import {CoreModule} from './core-module/core-module.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LancamentosPesquisaComponent,
-    NavbarComponent,
-    PessoaPesquisaComponent,
-    LancamentoCadastroComponent,
-    MessageComponent,
-    PessoaCadastroComponent,
-    LancamentosGridComponent,
-    PessoaGridComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +42,13 @@ import { PessoaGridComponent } from './pessoa-grid/pessoa-grid.component';
     CurrencyMaskModule,
     FormsModule,
     HttpClientModule,
+
+    CoreModule,
+    LancamentosModule,
+    PessoasModule
   ],
   providers: [CepService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
