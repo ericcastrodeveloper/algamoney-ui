@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {LancamentoService} from '../../lancamento.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -8,9 +10,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LancamentoCadastroComponent {
 
   tipos = [
-          { label: 'Receita', value: 'RECEITA' },
-          { label: 'Despesa', value: 'DESPESA' },
-        ];
+    {label: 'Receita', value: 'RECEITA'},
+    {label: 'Despesa', value: 'DESPESA'},
+  ];
 
   categorias = [
     {label: 'Alimentação', value: 1},
@@ -22,4 +24,14 @@ export class LancamentoCadastroComponent {
     {label: 'Sebastião Souza', value: 2},
     {label: 'Maria Abadia', value: 3},
   ];
+
+  constructor(private lancamentoService: LancamentoService) {
+  }
+
+  salvar(form: FormControl) {
+    console.log(form);
+    this.lancamentoService.adicionar(form);
+    console.log(`Adicionado com sucesso!`);
+
+  }
 }

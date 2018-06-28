@@ -10,11 +10,11 @@
       </div>
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label class="required">Vencimento</label>
-        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false" [showIcon]="false"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false" [showIcon]="false" name="vencimento" ngModel #vencimento="ngModel"></p-calendar>
       </div>
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label class="required">{{tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
-        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false" [showIcon]="false"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false" [showIcon]="false" name="recebimentoPagamento" ngModel #recebimento="ngModel"></p-calendar>
       </div>
       <div class="ui-g-12 ui-md-9  ui-fluid">
         <label class="required">Descrição {{descricao.errors | json}}</label>
@@ -34,19 +34,19 @@
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label class="required">Categoria {{categoria.value}}</label>
-        <p-dropdown [options]="categorias" [autoWidth]="false" placeholder="Selecione" #categoria></p-dropdown>
+        <p-dropdown [options]="categorias" [autoWidth]="false" placeholder="Selecione" name="categoria" ngModel #categoria="ngModel"></p-dropdown>
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label class="required">Pessoa</label>
-        <p-dropdown [options]="pessoas" [autoWidth]="false" [filter]="true" placeholder="Selecione" #pessoa></p-dropdown>
+        <p-dropdown [options]="pessoas" [autoWidth]="false" [filter]="true" placeholder="Selecione" name="pessoa" ngModel #pessoa="ngModel"></p-dropdown>
       </div>
       <div class="ui-g-12 ui-fluid">
         <label>Observação</label>
-        <textarea pInputTextarea type="textArea" [rows]="5"></textarea>
+        <textarea pInputTextarea type="textArea" [rows]="5" name="observacao" ngModel #observacao="ngModel"></textarea>
       </div>
       <div class="ui-g-12">
         <div class="ui-g-1">
-          <button pButton label="Salvar" type="button" [disabled]="!form.valid"></button>
+          <button pButton label="Salvar" type="button" [disabled]="!form.valid" (click)="salvar(form)"></button>
         </div>
         <div class="ui-g-1">
           <button pButton label="Novo" type="button" class="btn btn-info"></button>

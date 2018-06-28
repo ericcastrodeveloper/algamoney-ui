@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {EnderecoModel} from '../../model/endereco.model';
 import {CepService} from '../../cep/cep.service';
+import {FormControl} from '@angular/forms';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class PessoaCadastroComponent {
       });
     }
   }
-  salvar(event: any) {
-    console.log(event);
+  salvar(form: FormControl) {
+    console.log(form);
   }
 }

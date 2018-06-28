@@ -21,7 +21,19 @@ import {CepService} from './cep/cep.service';
 import {LancamentosModule} from './lancamentos/lancamentos.module';
 import {PessoasModule} from './pessoas/pessoas.module';
 import {CoreModule} from './core-module/core-module.module';
+import {LancamentoService, LancamentoServiceAbreviado} from './lancamento.service';
+import {LogService} from './log.service';
 
+
+// const criarLancamentoService = () => {
+//   console.log(`UseFactory`)
+// return new LancamentoServiceAbreviado(1);
+// };
+
+//OU
+// function criarFuncionarioService(){
+//
+// }
 
 @NgModule({
   declarations: [
@@ -47,7 +59,12 @@ import {CoreModule} from './core-module/core-module.module';
     LancamentosModule,
     PessoasModule
   ],
-  providers: [CepService],
+  providers: [CepService, LogService, LancamentoService,
+    // {provide: LancamentoService,
+    // useClass: LancamentoServiceAbreviado},
+    // useFactory: criarLancamentoService},
+    {provide: 'LogPrefixo', useValue: 'LOG'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
