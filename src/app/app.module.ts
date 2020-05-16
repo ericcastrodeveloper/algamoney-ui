@@ -23,7 +23,7 @@ import {PessoasModule} from './pessoas/pessoas.module';
 import {CoreModule} from './core-module/core-module.module';
 import {LancamentoService, LancamentoServiceAbreviado} from './lancamento.service';
 import {LogService} from './log.service';
-
+import { AppRoutingModule } from './app.routing.module';
 
 // const criarLancamentoService = () => {
 //   console.log(`UseFactory`)
@@ -54,10 +54,10 @@ import {LogService} from './log.service';
     CurrencyMaskModule,
     FormsModule,
     HttpClientModule,
-
     CoreModule,
     LancamentosModule,
-    PessoasModule
+    PessoasModule,
+    AppRoutingModule
   ],
   providers: [CepService, LogService, LancamentoService,
     // {provide: LancamentoService,

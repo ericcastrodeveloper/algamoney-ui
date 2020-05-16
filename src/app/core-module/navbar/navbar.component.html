@@ -1,4 +1,4 @@
-<nav class="navbar">
+ <nav class="navbar">
   <div class="container">
     <div class="ui-g">
       <div class="ui-g-12">
@@ -8,8 +8,9 @@
   </div>
   <ul class="navbar-menu" [hidden]="!exibindoMenu">
     <li class="navbar-usuario">Eric Castro</li>
-    <li class="navbar-menu-item"><a href="#">Lançamentos</a></li>
-    <li class="navbar-menu-item"><a href="#">Pessoas</a></li>
+    <li class="navbar-menu-item"><a routerLink="lancamentos">Lançamentos</a></li>
+    <li class="navbar-menu-item"><a routerLink="pessoas">Pessoas</a></li>
     <li class="navbar-menu-item"><a href="#">Logout</a></li>
   </ul>
 </nav>
+<!-- <p-menubar [model]="items"></p-menubar> -->

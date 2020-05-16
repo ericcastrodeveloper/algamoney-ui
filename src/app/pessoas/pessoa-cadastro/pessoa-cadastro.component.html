@@ -9,14 +9,14 @@
       <div class="ui-g-12 ui-fluid">
         <label class="required">Nome</label>
         <input pInputText type="text" name="nome" ngModel #nome="ngModel" required>
-        <app-message [control]="nome" error="required" text="O nome é obrigatório"></app-message>
+        <!-- <app-message [control]="nome" error="required" text="O nome é obrigatório"></app-message> -->
       </div>
       <div class="ui-g-4 ui-fluid">
         <label class="required">CEP</label>
         <p-inputMask name="cep" ngModel="cep" mask="99999-999" (onBlur)="getEndereco(cep)" #cep="ngModel" minlength="8"
                      required></p-inputMask>
-        <app-message [control]="cep" error="minlength" text="O cep deve ter 8 caracteres"></app-message>
-        <app-message [control]="cep" error="required" text="O cep é obrigatório"></app-message>
+        <!-- <app-message [control]="cep" error="minlength" text="O cep deve ter 8 caracteres"></app-message>
+        <app-message [control]="cep" error="required" text="O cep é obrigatório"></app-message> -->
       </div>
       <div class="ui-g-8 ui-fluid">
         <label>Logradouro</label>
@@ -25,7 +25,7 @@
       <div class="ui-g-4 ui-fluid">
         <label class="required">Número</label>
         <input pInputText type="number" name="numero" ngModel #numero="ngModel" required>
-        <app-message [control]="numero" error="required" text="O número é obrigatório"></app-message>
+        <!-- <app-message [control]="numero" error="required" text="O número é obrigatório"></app-message> -->
       </div>
       <div class="ui-g-4 ui-fluid">
         <label>Complemento</label>
